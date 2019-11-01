@@ -19,11 +19,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private GameManager gameManager;
 
 
-    public GameView(Context context) {
+    public GameView(Context context, String typeContext, String typeAction, String typeAlgo, String fileName) {
         super(context);
         SurfaceHolder = getHolder();
         getHolder().addCallback(this);
-        gameManager = new GameManager(getResources(), context);
+        gameManager = new GameManager(getResources(), context, typeContext, typeAction, typeAlgo, fileName);
 
         thread = new MainThread(getHolder(), this);
         setFocusable(true);
@@ -51,6 +51,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         boolean retry = true;
         while (retry) {
             try {
+                gameManager.destroy();
                 thread.setRunning(false);
                 thread.join();
                 retry = false;
@@ -83,7 +84,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         long fps = (long)1000/elapsedTime;
         //Log.d("GameView", "fps : " + fps);
         if(canvas != null) {
-            super.draw(canvas);
+            //super.draw(canvas);
             gameManager.draw(canvas);
             showFps(canvas, fps);
         }

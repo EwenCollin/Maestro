@@ -32,7 +32,7 @@ public class MainActivityOld extends AppCompatActivity {
                             //TextView text1 = (TextView) findViewById(R.id.textView1);
                             //text1.setText("" + pitchInHz + " Hz");
                             //TextView text2 = (TextView) findViewById(R.id.textView1);
-                            int note = Utils.frequencyToNoteN(pitchInHz);
+                            int note = Utils.frequencyToNoteN(pitchInHz, 0);
                             String noteS = Utils.noteNToNoteSfr(note);
                             //text2.setText("" + noteS);
                         }
