@@ -104,6 +104,11 @@ public class GameManager {
             display.drawAmplitudes(multiplePitchHandler.getAmplitudes(), canvas, 0);
             display.drawAmplitudes(multiplePitchHandler.getBinAmplitudes(), canvas, 1);
         }
+        else if(TypeAction.equals("DrawFFT")) {
+            display.resetDisplay(canvas);
+            display.drawFFT(multiplePitchHandler.getAmplitudes(), multiplePitchHandler.getRelevantValues(), Color.rgb(255, 0, 0), canvas, true);
+            multiplePitchHandler.convertSpectreToFreqAndIntens(multiplePitchHandler.getRelevantValues());
+        }
         else if(TypeContext.equals("basicDetection")){
             display.resetDisplay(canvas);
             display.drawNotes(notes, canvas, Color.rgb(0, 255, 255), 0);
@@ -137,7 +142,7 @@ public class GameManager {
     }
 
     public void multipleFrequenciesToNote() {
-        multipleFrequencies = multiplePitchHandler.getFrequenciesSorted();
+        multipleFrequencies = multiplePitchHandler.getFrequenciesFromSpectre();
         float totalIntensity = multiplePitchHandler.getTotalIntensity();
         if(totalIntensity > 4) {
             for (int i = 0; i < multipleFrequencies.length; i++) {

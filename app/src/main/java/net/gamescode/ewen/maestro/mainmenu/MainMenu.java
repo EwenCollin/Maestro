@@ -145,6 +145,7 @@ public class MainMenu extends AppCompatActivity {
             else if(selectedRadio.getText().equals("Listen")) selection[0] = "basicAction";
             else if(selectedRadio.getText().equals("Record")) selection[0] = "Record";
             else if(selectedRadio.getText().equals("Play record")) selection[0] = "PlayRecord";
+            else if(selectedRadio.getText().equals("Draw FFT")) selection[0] = "DrawFFT";
             else selection[0] = "basicAction";
         }
         else selection[0] = "basicAction";

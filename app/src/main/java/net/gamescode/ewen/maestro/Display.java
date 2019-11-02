@@ -75,6 +75,23 @@ public class Display {
         }
     }
 
+    public void drawFFT(float[] amplitudes, int[] relevantValues, @ColorInt int relevantColor, Canvas canvas, boolean displayEverything) {
+        boolean relevant = false;
+        for(int i = 0; i < amplitudes.length; i++) {
+            for(int j = 0; j < relevantValues.length; j++) {
+                if(relevantValues[j] == i) relevant = true;
+            }
+            if(relevant) {
+                relevant = false;
+                paint.setColor(relevantColor);
+                canvas.drawRect(screenWidth - amplitudes[i]*10, screenHeight - i, screenWidth, screenHeight - i - 5, paint);
+                i += 5;
+            }
+            else paint.setColor(Color.rgb(220, 220,220));
+            if(displayEverything) canvas.drawRect(screenWidth - amplitudes[i]*10, screenHeight - i, screenWidth, screenHeight - i - 1, paint);
+        }
+    }
+
     public void resetDisplay(Canvas canvas) {
         paint.setColor(Color.BLACK);
         canvas.drawRect(0, screenHeight, screenWidth, 0, paint);

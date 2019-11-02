@@ -176,6 +176,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Spectrogram" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonDrawFFT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Draw FFT" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>

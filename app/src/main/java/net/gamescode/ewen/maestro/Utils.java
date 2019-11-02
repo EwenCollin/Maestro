@@ -39,7 +39,72 @@ public class Utils {
     public static final byte[] IDENTIFIER_TRACK_END = { 'T', 'r', 'k' };
     public static final byte[] IDENTIFIER_END = { 'M', 'T', 'r', 'k', 'E', 'n', 'd' };
 
-    //Gets the 10 max values of a float[]
+
+    public static int progression(int first, int ratio, int n) {
+        for(int i = 0; i < n; i++) {
+            first = first*ratio;
+        }
+        return first;
+    }
+
+    public static int[] cleanupTableInt(int[] initial) {
+        int numberOfValues = 0;
+        for(int i = 0; i < initial.length; i++) {
+            if(initial[i] != 0) numberOfValues++;
+        }
+        int[] output = new int[numberOfValues];
+        int j = 0;
+        for(int i = 0; i < initial.length; i++) {
+            if(initial[i] != 0) {
+                output[j] = initial[i];
+                j++;
+            }
+        }
+        return output;
+    }
+
+
+    //Makes a small table from a bigger one, copying only from an index and to a maximum range
+    public static float[] copyFromIndexAndRange(float[] initial, int index, int range) {
+        if(index + range < initial.length && range > 0) {
+            float[] newtable = new float[range];
+            for(int i = 0; i < newtable.length; i++) {
+                newtable[i] = initial[index + i];
+            }
+            return newtable;
+        }
+        else return initial;
+    }
+
+    //Makes a table from an existing one, only copying the values that indexes are in the second table parameter
+    public static float[] copyFromIndexes(float[] initial, int[] indexes) {
+        if(indexes.length <= initial.length) {
+            float[] newtable = new float[initial.length];
+            for(int i = 0; i < initial.length; i++) {
+                for(int j = 0; j < indexes.length; j++) {
+                    if(indexes[j] == i) {
+                        newtable[i] = initial[i];
+                    }
+                }
+            }
+            return  newtable;
+        }
+        else return initial;
+    }
+
+    public static int getMaximumValueIndex(float[] input) {
+        float maximumValue = (float) 0.0;
+        int index = 0;
+        for(int i = 0; i < input.length; i++) {
+            if(maximumValue < input[i]) {
+                maximumValue = input[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    //Gets the x max values of a float[]
     public static int[] getMaximumValuesIndexes(float[] input, int numberOfValues) {
         int[] indexes = new int[numberOfValues];
         float[] values = new float[numberOfValues];
