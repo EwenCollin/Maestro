@@ -2,8 +2,7 @@
 Mobile application based on note recognition using TarsosDSP and a MIDI reader library. This application has for goal to be used for improving its skills on playing an instrument.
 
 Demo video :
-[](https://github.com/EwenCollin/Maestro/assets/51873655/01e01912-36b8-4ea8-98e9-2daec804ef85)
-
+https://github.com/EwenCollin/Maestro/assets/51873655/01e01912-36b8-4ea8-98e9-2daec804ef85
 
 ## Overview
 This application can be used to recognize notes played by a musical instrument or someone, it can convert sounds to notes and then to MIDI file, it can also extract notes from MIDI file and play them (piano only). This application is also able to tell you if you play correctly a music track according to a MIDI file.
