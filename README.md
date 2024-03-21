@@ -2,7 +2,7 @@
 Mobile application based on note recognition using TarsosDSP and a MIDI reader library. This application has for goal to be used for improving its skills on playing an instrument.
 
 Demo video :
-https://github.com/EwenCollin/Maestro/assets/51873655/01e01912-36b8-4ea8-98e9-2daec804ef85
+[](https://github.com/EwenCollin/Maestro/assets/51873655/01e01912-36b8-4ea8-98e9-2daec804ef85)
 
 
 ## Overview
